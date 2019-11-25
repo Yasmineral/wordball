@@ -1,0 +1,29 @@
+{
+  "name": "wordball",
+  "version": "1.0.0",
+  "description": "Physics Engine Word Game",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yasmineral/wordball.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yasmineral/wordball/issues"
+  },
+  "homepage": "https://github.com/Yasmineral/wordball#readme",
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jasmine": "^3.5.0",
+    "nyc": "^14.1.1"
+  }
+}
