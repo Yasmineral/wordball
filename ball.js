@@ -41,6 +41,10 @@ class Ball {
     this.yPos += this.yVel*this.dt;
   };
 
+  makeStill() {
+    this.isStill = true
+  }
+
   checkIfStill() {
     let speed = Math.sqrt(Math.pow(this.xVel,2)+Math.pow(this.yVel,2))
     if(speed<3) {
@@ -51,8 +55,6 @@ class Ball {
 
 
   detectCollision() {
-
-
 
     if(this.yPos<this.radius) {
       this.yPos = this.radius;
