@@ -1,15 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="interface.js"></script>
-<script src="ball.js"></script>
-<script src="game.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Word Ball</title>
 </head>
 
-<center>
-  <h1>Word Ball</h1>
-  <div id='app'>
-  <canvas id="canvas" width="500" height="900" style="border:1px solid black">
-  </canvas>
-  </div>
-</center>
+<body>
+  <article>
+    <header>
+      <h1>Word Ball</h1>
+    </header>
+    <main>
+      <div class="app">
+        <canvas id="canvas" width="500" height="900"></canvas>
+      </div>
+    </main>
+    <footer>
+      <a href="http://www.github.com/Yasmineral/wordball" target="_blank">Visit the WordBall project on Github</a>
+    </footer>
+  </article>
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="src/interface.js"></script>
+  <script src="src/ball.js"></script>
+  <script src="src/game.js"></script>
+</body>
+
+</html>
