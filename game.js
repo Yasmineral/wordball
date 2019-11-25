@@ -10,23 +10,29 @@ class Game {
     this.tLeftCorner = [100,700]
     this.tRightCorner = [400,700]
 
-    this.gameOver = false
     this.counter = 0;
   }
 
-  isGameOver {
+  isGameOver() {
     if(this.counter>=this.letters.length) {
-      this.gameOver = true
+      return true
+    }
+    else {
+      return false
     }
   }
-  
+
+  increaseCounter() {
+    this.counter+=1
+  }
+
   isBallinHole(ball) {
     let x = ball.xPos
     let y = ball.yPos
     if (x>100&&x<400&&y>700&&y<800) {
       ball.makeStill()
       this.word.push(ball.letter)
-      this.counter+=1
+      this.increaseCounter()
     }
   }
 

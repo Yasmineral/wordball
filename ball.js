@@ -42,7 +42,7 @@ class Ball {
   };
 
   makeStill() {
-    this.isStill = true
+    this.isStill = true;
   }
 
   checkIfStill() {

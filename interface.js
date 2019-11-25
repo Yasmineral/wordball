@@ -1,46 +1,58 @@
 $( document ).ready(function() {
 
-
   let game = new Game();
+  let ball = new Ball();
+
+  //draw every 0.1 seconds
+  setInterval(draw, 10);
 
   //talk to the canvas in the html
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
 
-  //draw every 0.1 seconds
-  setInterval(draw, 10);
+  ///////////////////////////
+  //DRAG AND DROP DETECTION//
+  ///////////////////////////
 
   //drag and drop coordinates
-  var x1
-  var x2
-  var y1
-  var y2
+  var x1;
+  var x2;
+  var y1;
+  var y2;
 
   $( "#canvas" ).mousedown(function(canvas) {
     var offset = $(this).offset();
-    x1 = event.clientX-offset.left
-    y1 = event.clientY-offset.top
+    x1 = event.clientX-offset.left;
+    y1 = event.clientY-offset.top;
   });
 
   $( "#canvas" ).mouseup(function(canvas) {
     var offset = $(this).offset();
-    x2 = event.clientX-offset.left
-    y2 = event.clientY-offset.top
+    x2 = event.clientX-offset.left;
+    y2 = event.clientY-offset.top;
     ball = new Ball(x1,y1,'green',15,game.letters[game.counter])
     ball.giveVelocity(x1,y1,x2,y2)
   });
 
-
+  ///////////////////
+  //BALL ANIMATION//
+  //////////////////
 
   function draw() {
+    console.log(game.counter)
+    //check if we have any balls left
+    checkGameOver()
+
     //clear the board
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     //draw word hole
     ctx.beginPath();
     ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0]-game.tLeftCorner[0], game.bRightCorner[1]-game.tLeftCorner[1]);
     ctx.stroke();
     ctx.fillStyle = 'black'
-    ctx.fill()
+    ctx.fill();
+
     //draw the ball
     drawBall(ball)
   };
@@ -64,9 +76,14 @@ $( document ).ready(function() {
       ctx.fillStyle = "red";
       ctx.fillText(ball.letter,x+5,y+30)
     }
+  };
 
-
-
+  function checkGameOver() {
+    if(game.isGameOver()==true) {
+      clearInterval()
+      $("#app").text(game.word)
+      $("#canvas").hide()
+    }
   };
 
 });
