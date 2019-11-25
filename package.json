@@ -4,7 +4,7 @@
   "description": "Physics Engine Word Game",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "nyc jasmine; eslint spec src"
   },
   "repository": {
     "type": "git",
