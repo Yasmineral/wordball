@@ -27,12 +27,12 @@ $(document).ready(function () {
     let x2
     let y1
     let y2
-    $('#canvas').mousedown (canvas => function (canvas) {
+    $('#canvas').mousedown (function (canvas) {
       const offset = $ (this).offset()
       x1 = event.clientX - offset.left
       y1 = event.clientY - offset.top
     })
-    $('#canvas').mouseup (canvas => function (canvas) {
+    $('#canvas').mouseup (function (canvas) {
       const offset = $ (this).offset()
       x2 = event.clientX - offset.left
       y2 = event.clientY - offset.top
