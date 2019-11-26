@@ -25,30 +25,28 @@ export default class Level {
 
   generateLetterArray () {
     const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    let lettersArray = []
     const seedNumber = this.seed.value
-    lettersArray = this.getRandomLetterCodes(seedNumber).map((n) => {
+    let lettersArray = this.getRandomLetterCodes(seedNumber).map((n) => {
       return ALPHABET[n]
     })
 
-    return lettersArray.map((character) => {
+    lettersArray = lettersArray.map((character) => {
       const letter = new Letter(character)
       return letter
     })
+    console.log(lettersArray)
+    return lettersArray
   }
 
   getRandomLetterCodes (seedNumber) {
     let i
     const randomNumbers = []
     for (i = 0; i < this.totalLetters; i++) {
-      randomNumbers.push(this.createRandomNumber(seedNumber))
+      // DO NOT REFACTOR - Must be done in sequence within same function
+      seedNumber = (seedNumber * 9301 + 49297) % 233280
+      var rnd = seedNumber / 233280
+      randomNumbers.push(Math.floor(0 + rnd * (26 - 0)))
     }
     return randomNumbers
-  }
-
-  createRandomNumber (seedNumber) {
-    seedNumber = (seedNumber * 9301 + 49297) % 233280
-    var rnd = seedNumber / 233280
-    return Math.floor(0 + rnd * (26 - 0))
   }
 }
