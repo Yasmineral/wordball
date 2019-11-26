@@ -113,12 +113,22 @@ canvas {
   text-align: center;
 }
 
-.letterbutton {
-  height: 60px;
-  width: 60px;
-  font-size: 40px;
+.letterbutton-on {
+  height: 65px;
+  width: 65px;
+  font-size: 45px;
   border-radius: 50%;
   background-color: lightgrey;
+  border: 0px;
+  outline: none
+}
+
+.letterbutton-off {
+  height: 65px;
+  width: 65px;
+  font-size: 45px;
+  border-radius: 50%;
+  background-color: black;
   border: 0px;
   outline: none
 }

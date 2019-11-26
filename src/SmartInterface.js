@@ -22,9 +22,10 @@ $( document ).ready(() => {
     clearTextInput()
   })
 
-  $('.letterbutton').click(() => {
-    console.log(event.target.innerHTML)
+  $('.letterbutton-on').click(() => {
+    if (event.target.className === "letterbutton-off") { return }
     wordInput += event.target.innerHTML
+    event.target.className = "letterbutton-off"
     $('#typearea').text(wordInput)
     if (!smartGame.validWords.includes(wordInput) && smartGame.possibleWords.includes(wordInput)) {
       smartGame.validWords.push(wordInput)
@@ -35,7 +36,7 @@ $( document ).ready(() => {
 
   function generateLetterButtons () {
     const buttonHTML = smartGame.playerLetters.map((letter) => {
-      return `<button class="letterbutton">${letter}</button>`
+      return `<button class="letterbutton-on">${letter}</button>`
     })
     $('#letterkeys').html(buttonHTML.join('\n'))
   }
@@ -43,5 +44,6 @@ $( document ).ready(() => {
   function clearTextInput () {
     wordInput = ''
     $('#typearea').text(wordInput)
+    $('.letterbutton-off').attr('class', 'letterbutton-on')
   }
 })
