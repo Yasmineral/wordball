@@ -1,4 +1,4 @@
-const Seed = require('../src/Seed')
+const Seed = require('../src/seed')
 
 describe('Seed', () => {
   it('returns 100111103 when passed dog', () => {
