@@ -57,7 +57,6 @@ main .app {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-
 canvas {
   color: #212121;
   background-image: url(background.png);
@@ -65,4 +64,82 @@ canvas {
   background-color: #FFFFFF;
   border:1px solid #673AB7;
   box-shadow:         inset 0 0 10px #000000;
+}
+
+#gamediv {
+  height: 900px;
+  width: 500px;
+  color: #212121;
+  background-image: url(background.png);
+  background-size: cover;
+  background-color: #FFFFFF;
+  border:1px solid #673AB7;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+#validwords {
+  height: 450px;
+  width: 400px;
+  padding: 50px;
+  border:0px solid #673AB7;
+  font-size: 40px;
+  color: green;
+  text-align: center;
+}
+
+#typebox {
+  height: 60px;
+  width: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border:0px solid #673AB7;
+  font-size: 60px;
+  color: black;
+  text-align: center;
+}
+
+#letterkeys {
+  height: 150px;
+  width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0px;
+  font-size: 60px;
+  color: black;
+  text-align: center;
+}
+
+.letterbutton {
+  height: 60px;
+  width: 60px;
+  font-size: 40px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  border: 0px;
+  outline: none
+}
+
+#clearword {
+  height: 70px;
+  width: 400px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0px;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+#clearbutton {
+  color: white;
+  border: none;
+  background-color: transparent;
+  height: 40px;
+  width: 120px;
+  font-size: 25px;
+  outline: none;
 }

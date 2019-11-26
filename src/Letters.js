@@ -29,5 +29,3 @@ class Letters {
     return randNums
   }
 }
-
-module.exports = Letters
