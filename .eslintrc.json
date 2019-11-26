@@ -3,7 +3,8 @@
         "browser": true,
         "es6": true,
         "node": true,
-        "jasmine": true
+        "jasmine": true,
+        "jquery": true
     },
     "extends": [
         "plugin:react/recommended",
