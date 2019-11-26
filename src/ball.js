@@ -38,10 +38,6 @@ class Ball {
   }
 
   detectCollision() {
-    if(this.yPos<this.radius) {
-      this.yPos = this.radius;
-      this.yVel = -this.yVel*this.cor;
-    }
     if(this.xPos+this.radius>this.canvas.width) {
       this.xPos = this.canvas.width - this.radius
       this.xVel = -this.xVel*this.cor
