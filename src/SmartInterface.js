@@ -7,8 +7,8 @@ $( document ).ready(() => {
   const smartGame = new SmartGame(playerLetters, skillPoints)
 
   $.get('https://jsonp.afeld.me/?url=http://anagramica.com/all/:dones', function(data) {
-      smartGame.possibleWords = data.all.filter((word) => {
-        if (word.length > 2) { return word }
+      smartGame.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
+        return w.toUpperCase()
       })
       console.log(smartGame)
   });
@@ -24,13 +24,13 @@ $( document ).ready(() => {
 
   $('.letterbutton').click(() => {
     console.log(event.target.innerHTML)
-    wordInput += event.target.innerHTML.toLowerCase()
-    $('#typearea').text(wordInput.toUpperCase())
+    wordInput += event.target.innerHTML
+    $('#typearea').text(wordInput)
     if (!smartGame.validWords.includes(wordInput) && smartGame.possibleWords.includes(wordInput)) {
       smartGame.validWords.push(wordInput)
       clearTextInput()
     }
-    console.log(smartGame.validWords)
+    $('#validwords').html(smartGame.validWords.join('<br>'))
   })
 
   function generateLetterButtons () {
