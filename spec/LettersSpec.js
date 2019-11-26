@@ -1,4 +1,4 @@
-const Letters = require('../src/Letters')
+const Letters = require('../src/letters')
 
 describe('LetterScores', () => {
   const letter = new Letters()

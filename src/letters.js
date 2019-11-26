@@ -1,6 +1,8 @@
 export default class Letters {
   constructor() {
     this.scores = { EAIONRTLSU: 1, DGBCMP: 2, FHVWY: 3, KJX: 4, QZ: 5 }
+    this.colours = { EAIONRTLSU: '#FF17D1', DGBCMP: '#17D5FF', FHVWY: '#5DFF17', KJX: '#FF2D2D', QZ: '#FFAC2D' }
+
     this.letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   }
 
@@ -12,7 +14,21 @@ export default class Letters {
     }
   }
 
+<<<<<<< HEAD:src/Letters.js
+
+  getColour (letter) {
+    for (const key in this.colours) {
+      if (key.includes(letter)) {
+        return this.colours[key]
+      }
+    }
+  }
+
+
+  seededLetterGenerator (seed, required) {
+=======
   seededLetterGenerator(seed, required) {
+>>>>>>> master:src/letters.js
     return this.seededRand(seed, required).map((n) => {
       return this.letters[n]
     })
@@ -29,4 +45,9 @@ export default class Letters {
     return randNums
   }
 }
+<<<<<<< HEAD:src/Letters.js
+ // 
+ // module.exports = Letters
+=======
 
+>>>>>>> master:src/letters.js
