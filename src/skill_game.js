@@ -4,7 +4,9 @@ class Game {
 
     this.score = 0;
 
+    //replace me with stuff from level generator
     this.letters = ['D','O','G','F','A','R','T','Z'];
+
     this.balls = [];
     this.letters.forEach(element => this.balls.push(new Ball(250,600,15,element)));
     this.counter = 0;

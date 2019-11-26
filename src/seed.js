@@ -1,4 +1,4 @@
-export default class Seed {
+class Seed {
   constructor(word) {
     this.word = word
     this.value = 0
@@ -14,4 +14,3 @@ export default class Seed {
     this.value = parseInt(array.join(''))
   }
 }
-

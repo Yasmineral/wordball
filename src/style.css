@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Roboto&display=swap');
-@font-face{
- font-family:'digital-clock-font';
- src: url('put_the_location_to_your_font.ttf or .otf');
-}
+
 html, body {
   height: 100vh;
   width: 100vw;
