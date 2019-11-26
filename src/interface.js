@@ -11,21 +11,18 @@ $( document ).ready(function() {
   let game = new Game(holeArray);
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
+  let timeInterval = setInterval(countdown, 1000);
   let interval;
-
-  var timeLeft = 10;
-    var elem = document.getElementById('timer');
-
-    var timerId = setInterval(countdown, 1000);
-
+  let timeLeft = 10;
     function countdown() {
       if (timeLeft == 0) {
         game.forceGameOver()
+        clearInterval(timeInterval);
       } else {
         $('#timer').text(timeLeft + ' seconds remaining');
         timeLeft--;
-      }
-    }
+      };
+    };
 
   function playBall(ball) {
     countdown()
@@ -52,18 +49,15 @@ $( document ).ready(function() {
     //BALL ANIMATION//
     //////////////////
     function draw() {
-      console.log('running')
+      $('#score').text("Current Score: "+game.score);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+      ctx.font = "20px Arial";
       game.isBallinScoreHole(ball)
       game.isBallinWordHole(ball)
       game.isBallInTheAbyss(ball)
-
       checkGameOver()
-
       drawRectangle()
       drawHoles(game.holeArray)
-
       if(ball.isDone == true) {
         ball = game.currentBall()
       }
@@ -79,9 +73,8 @@ $( document ).ready(function() {
           ctx.arc(item.xPos,item.yPos, item.radius, 0, 2 * Math.PI);
           ctx.fill();
           ctx.stroke();
-          ctx.font = "17px Arial";
           ctx.fillStyle = "white";
-          ctx.fillText("x"+item.score,item.xPos-6,item.yPos);
+          ctx.fillText("x"+item.score,item.xPos-8,item.yPos);
         }
       );
     };
@@ -92,9 +85,8 @@ $( document ).ready(function() {
       ctx.stroke();
       ctx.fillStyle = 'black';
       ctx.fill();
-      ctx.font = "17px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText('Throw in here to make a word!',135,750);
+      ctx.fillText('Throw in here to make a word!',115,750);
     };
 
     function drawBall(ball) {
@@ -106,8 +98,7 @@ $( document ).ready(function() {
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI);
       ctx.fill()
       ctx.stroke();
-      ctx.font = "17px Arial";
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "white";
       ctx.fillText(ball.letter,x+5,y+30);
     };
   };

@@ -1,7 +1,11 @@
 class Ball {
 
-  constructor(x,y,colour,radius,letter) {
-    this.colour = colour;
+  constructor(x,y,radius,letter) {
+
+    let letters = new Letters()
+
+    this.colour = letters.getColour(letter)
+    this.score = letters.getScore(letter)
     this.radius = radius;
     this.xPos = x;
     this.yPos = y;
@@ -51,8 +55,4 @@ class Ball {
       this.yVel = -this.yVel*this.cor
     }
   };
-
-
-
-
-}
+};

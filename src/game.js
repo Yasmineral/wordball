@@ -2,9 +2,11 @@ class Game {
 
   constructor(holeArray) {
 
-    this.letters = ['A','B','C','D'];
+    this.score = 0;
+
+    this.letters = ['D','O','G','F','A','R','T','Z'];
     this.balls = [];
-    this.letters.forEach(element => this.balls.push(new Ball(250,600,'green',15,element)));
+    this.letters.forEach(element => this.balls.push(new Ball(250,600,15,element)));
     this.counter = 0;
     this.word = [];
 
@@ -49,6 +51,7 @@ class Game {
       if (x>x1&&x<x2&&y>y1&&y<y2) {
         ball.done()
         self.increaseCounter()
+        self.score+=(ball.score*item.score)
       }
     });
   }
