@@ -1,10 +1,10 @@
-class Letters {
-  constructor () {
+export default class Letters {
+  constructor() {
     this.scores = { EAIONRTLSU: 1, DGBCMP: 2, FHVWY: 3, KJX: 4, QZ: 5 }
     this.letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   }
 
-  getScore (letter) {
+  getScore(letter) {
     for (const key in this.scores) {
       if (key.includes(letter)) {
         return this.scores[key]
@@ -12,13 +12,13 @@ class Letters {
     }
   }
 
-  seededLetterGenerator (seed, required) {
+  seededLetterGenerator(seed, required) {
     return this.seededRand(seed, required).map((n) => {
       return this.letters[n]
     })
   }
 
-  seededRand (seed, required) {
+  seededRand(seed, required) {
     let i
     const randNums = []
     for (i = 0; i < required; i++) {
@@ -30,4 +30,3 @@ class Letters {
   }
 }
 
-module.exports = Letters
