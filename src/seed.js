@@ -1,4 +1,4 @@
-class Seed {
+export default class Seed {
   constructor(word) {
     this.word = word
     this.value = 0

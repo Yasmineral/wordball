@@ -1,7 +1,7 @@
-const Letters = require('../src/letters')
+import Letter from '../src/letter.js'
 
 describe('LetterScores', () => {
-  const letter = new Letters()
+  const letter = new Letter()
 
   describe('#getScore', () => {
     it("Passing in 'A' as an argument returns 1", () => {

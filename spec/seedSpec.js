@@ -1,4 +1,4 @@
-const Seed = require('../src/seed')
+import Seed from '../src/seed.js'
 
 describe('Seed', () => {
   it('returns 100111103 when passed dog', () => {

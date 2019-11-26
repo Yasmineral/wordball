@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-const e = React.createElement;
+const e = React.createElement
 
 class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { start: false };
+  constructor (props) {
+    super(props)
+    this.state = { start: false }
   }
 
-  render() {
+  render () {
     if (this.state.start) {
     }
 
@@ -16,9 +16,9 @@ class LikeButton extends React.Component {
       'button',
       { onClick: () => this.setState({ start: true }) },
       'Like'
-    );
+    )
   }
 }
 
-const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+const domContainer = document.querySelector('#like_button_container')
+ReactDOM.render(e(LikeButton), domContainer)

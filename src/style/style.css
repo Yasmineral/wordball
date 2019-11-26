@@ -68,7 +68,7 @@ main .scoreinfo {
 
 canvas {
   color: #212121;
-  background-image: url(background.png);
+  background-image: url(/src/images/background.png);
   background-size: cover;
   background-color: #FFFFFF;
   border:1px solid #673AB7;
