@@ -8,7 +8,7 @@ $( document ).ready(() => {
 
   $.get('https://jsonp.afeld.me/?url=http://anagramica.com/all/:dones', function(data) {
       smartGame.possibleWords = data.all.filter((word) => {
-        if (word.length >= 2) { return word }
+        if (word.length > 2) { return word }
       })
       console.log(smartGame)
   });
@@ -19,14 +19,18 @@ $( document ).ready(() => {
 
   $('#clearbutton').click(() => {
     console.log('clearbutton')
-    wordInput = ''
-    $('#typearea').text(wordInput)
+    clearTextInput()
   })
 
   $('.letterbutton').click(() => {
     console.log(event.target.innerHTML)
-    wordInput += event.target.innerHTML
-    $('#typearea').text(wordInput)
+    wordInput += event.target.innerHTML.toLowerCase()
+    $('#typearea').text(wordInput.toUpperCase())
+    if (!smartGame.validWords.includes(wordInput) && smartGame.possibleWords.includes(wordInput)) {
+      smartGame.validWords.push(wordInput)
+      clearTextInput()
+    }
+    console.log(smartGame.validWords)
   })
 
   function generateLetterButtons () {
@@ -34,5 +38,10 @@ $( document ).ready(() => {
       return `<button class="letterbutton">${letter}</button>`
     })
     $('#letterkeys').html(buttonHTML.join('\n'))
+  }
+
+  function clearTextInput () {
+    wordInput = ''
+    $('#typearea').text(wordInput)
   }
 })
