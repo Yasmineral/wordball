@@ -15,12 +15,18 @@ $( document ).ready(() => {
 
   generateLetterButtons ()
 
+  let wordInput = ''
+
   $('#clearbutton').click(() => {
     console.log('clearbutton')
+    wordInput = ''
+    $('#typearea').text(wordInput)
   })
 
   $('.letterbutton').click(() => {
     console.log(event.target.innerHTML)
+    wordInput += event.target.innerHTML
+    $('#typearea').text(wordInput)
   })
 
   function generateLetterButtons () {
@@ -29,5 +35,4 @@ $( document ).ready(() => {
     })
     $('#letterkeys').html(buttonHTML.join('\n'))
   }
-
 })
