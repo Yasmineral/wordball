@@ -1,89 +1,80 @@
 $( document ).ready(function() {
 
   let game = new Game();
-  let ball = new Ball();
+  let canvas = document.getElementById("canvas");
+  let ctx = canvas.getContext("2d");
+  let interval
 
-  //draw every 0.1 seconds
-  setInterval(draw, 10);
-
-  //talk to the canvas in the html
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
-
-  ///////////////////////////
-  //DRAG AND DROP DETECTION//
-  ///////////////////////////
-
-  //drag and drop coordinates
-  var x1;
-  var x2;
-  var y1;
-  var y2;
-
-  $( "#canvas" ).mousedown(function(canvas) {
-    var offset = $(this).offset();
-    x1 = event.clientX-offset.left;
-    y1 = event.clientY-offset.top;
-  });
-
-  $( "#canvas" ).mouseup(function(canvas) {
-    var offset = $(this).offset();
-    x2 = event.clientX-offset.left;
-    y2 = event.clientY-offset.top;
-    ball = new Ball(x1,y1,'green',15,game.letters[game.counter])
-    ball.giveVelocity(x1,y1,x2,y2)
-  });
-
-  ///////////////////
-  //BALL ANIMATION//
-  //////////////////
-
-  function draw() {
-    console.log(game.counter)
-    //check if we have any balls left
-    checkGameOver()
-
-    //clear the board
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    //draw word hole
-    ctx.beginPath();
-    ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0]-game.tLeftCorner[0], game.bRightCorner[1]-game.tLeftCorner[1]);
-    ctx.stroke();
-    ctx.fillStyle = 'black'
-    ctx.fill();
-
-    //draw the ball
-    drawBall(ball)
-  };
-
-  function drawBall(ball) {
-    if(ball.isStill==false) {
-      //update position
-      ball.position()
+  function playBall(ball) {
+    interval = setInterval(draw,10);
+    ///////////////////////////
+    //DRAG AND DROP DETECTION//
+    ///////////////////////////
+    let x1;
+    let x2;
+    let y1;
+    let y2;
+    $( "#canvas" ).mousedown(function(canvas) {
+      let offset = $(this).offset();
+      x1 = event.clientX-offset.left;
+      y1 = event.clientY-offset.top;
+    });
+    $( "#canvas" ).mouseup(function(canvas) {
+      let offset = $(this).offset();
+      x2 = event.clientX-offset.left;
+      y2 = event.clientY-offset.top;
+      ball.giveVelocity(x1,y1,x2,y2)
+    });
+    ///////////////////
+    //BALL ANIMATION//
+    //////////////////
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       game.isBallinHole(ball)
+      checkGameOver()
+      drawRectangle()
+      if(ball.isDone == true) {
+        ball = game.currentBall()
+      }
+      else {
+        drawBall(ball)
+        // game.tick(ball)
+      };
+    };
 
+    function drawRectangle() {
+      ctx.beginPath();
+      ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0]-game.tLeftCorner[0], game.bRightCorner[1]-game.tLeftCorner[1]);
+      ctx.stroke();
+      ctx.fillStyle = 'black'
+      ctx.fill();
+    };
+
+    function drawBall(ball) {
+      ball.position()
       x = ball.xPos
       y = ball.yPos
-      //actually draw the ball
       ctx.fillStyle = ball.colour;
       ctx.beginPath();
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI);
       ctx.fill()
       ctx.stroke();
-      //label the ball
       ctx.font = "17px Arial";
       ctx.fillStyle = "red";
       ctx.fillText(ball.letter,x+5,y+30)
-    }
+    };
   };
 
   function checkGameOver() {
     if(game.isGameOver()==true) {
-      clearInterval()
+      clearInterval(interval)
       $("#app").text(game.word)
       $("#canvas").hide()
-    }
+      $("#timer").hide()
+    };
   };
+
+  playBall(game.currentBall())
+
 
 });
