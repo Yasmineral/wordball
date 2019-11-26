@@ -1,28 +1,25 @@
 $( document ).ready(() => {
-  console.log('loaded')
 
-  const playerLetters = ['D', 'O', 'N', 'E', 'S']
+  const playerLetters = ['P', 'A', 'N', 'D', 'A', 'Y', 'S']
   const skillPoints = 50
+  const letterGetReq = playerLetters.join('').toLowerCase()
   const letters = new Letters()
   const smartGame = new SmartGame(playerLetters, skillPoints)
 
-  $.get('https://jsonp.afeld.me/?url=http://anagramica.com/all/:dones', function(data) {
+  $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function(data) {
       smartGame.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
         return w.toUpperCase()
       })
-      console.log(smartGame)
   });
 
   generateLetterButtons ()
-
   let wordInput = ''
 
   $('#clearbutton').click(() => {
-    console.log('clearbutton')
     clearTextInput()
   })
 
-  $('.letterbutton-on').click(() => {
+  $('[class*="letterbutton-on"]').click(() => {
     if (event.target.className === "letterbutton-off") { return }
     wordInput += event.target.innerHTML
     event.target.className = "letterbutton-off"
@@ -31,12 +28,13 @@ $( document ).ready(() => {
       smartGame.validWords.push(wordInput)
       clearTextInput()
     }
-    $('#validwords').html(smartGame.validWords.join('<br>'))
+    $('#validwordslist').html(smartGame.validWords.join(' - '))
   })
 
   function generateLetterButtons () {
     const buttonHTML = smartGame.playerLetters.map((letter) => {
-      return `<button class="letterbutton-on">${letter}</button>`
+      const score = letters.getScore(letter)
+      return `<button class="letterbutton-on${score}" value="${score}">${letter}</button>`
     })
     $('#letterkeys').html(buttonHTML.join('\n'))
   }
@@ -44,6 +42,9 @@ $( document ).ready(() => {
   function clearTextInput () {
     wordInput = ''
     $('#typearea').text(wordInput)
-    $('.letterbutton-off').attr('class', 'letterbutton-on')
+
+    $('.letterbutton-off').each((_index, button) => {
+      $(button).attr('class', `letterbutton-on${button.value}`)
+    })
   }
 })
