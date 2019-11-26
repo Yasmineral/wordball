@@ -8,10 +8,9 @@ export default class Game {
     this.letters = level.letters
     this.holeArray = level.holes
 
-    this.letters.forEach(element => this.balls.push(new Ball(250, 600, 15, element)))
+    this.letters.forEach(letter => this.balls.push(new Ball(250, 600, 15, letter)))
     this.counter = 0
     this.word = []
-
 
     this.bLeftCorner = [100, 800]
     this.bRightCorner = [400, 800]

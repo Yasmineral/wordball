@@ -1,13 +1,13 @@
 import { letterGroups, LetterColours } from './config.js'
 
 export default class Letter {
-  constructor (value) {
-    this.value = value
-    this.score = this.getScore(value)
-    this.colour = this.getColour(value)
+  constructor(character) {
+    this.character = character
+    this.score = this.getScore(character)
+    this.colour = this.getColour(character)
   }
 
-  getScore (letter) {
+  getScore(letter) {
     for (const key in letterGroups) {
       if (key.includes(letter)) {
         return letterGroups[key]
@@ -15,7 +15,7 @@ export default class Letter {
     }
   }
 
-  getColour (letter) {
+  getColour(letter) {
     for (const key in LetterColours) {
       if (key.includes(letter)) {
         return LetterColours[key]

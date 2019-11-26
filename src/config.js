@@ -1,4 +1,5 @@
 export const MAX_LETTERS = 30
+export const DEFAULT_TIMER = 30
 
 export const letterGroups = {
   EAIONRTLSU: 1,
@@ -27,4 +28,13 @@ export const levelList = [
   'verisimilitude',
   'valetudinarian',
   'antiestablishmentarianism'
+]
+
+export const defaultHoleAttributes = [
+  // x, y, score, size
+  [200, 200, 1, 40],
+  [300, 200, 1, 40],
+  [100, 100, 2, 30],
+  [400, 100, 2, 30],
+  [250, 50, 5, 20]
 ]

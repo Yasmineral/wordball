@@ -1,46 +1,54 @@
-// import Seed from './src/seed.js'
+import { defaultHoleAttributes } from './config.js'
 import Hole from './hole.js'
 import Letter from './letter.js'
 
 export default class Level {
-  constructor(seed, totalLetters) {
+  constructor (seed, totalLetters) {
     this.seed = seed
     this.totalLetters = totalLetters
     this.letters = this.generateLetterArray()
-    this.holes = this.generateHolesArray()
+    this.holes = this.generateHolesArray(defaultHoleAttributes)
   }
 
-  generateHolesArray() {
-    const placeholder = [
-      new Hole(200, 200, 1, 30),
-      new Hole(300, 200, 1, 30),
-      new Hole(100, 100, 2, 25),
-      new Hole(400, 100, 2, 25),
-      new Hole(250, 50, 5, 25)
-    ]
-    return placeholder
+  generateHolesArray (holeValues) {
+    const array = []
+    holeValues.forEach(holeValue => {
+      const x = holeValue[0]
+      const y = holeValue[1]
+      const score = holeValue[2]
+      const size = holeValue[3]
+      const hole = new Hole(x, y, score, size)
+      array.push(hole)
+    })
+    return array
   }
 
-  generateLetterArray() {
+  generateLetterArray () {
     const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     let lettersArray = []
-    lettersArray = this.seedValuesArray().map((n) => {
+    const seedNumber = this.seed.value
+    lettersArray = this.getRandomLetterCodes(seedNumber).map((n) => {
       return ALPHABET[n]
     })
 
     return lettersArray.map((character) => {
-      return new Letter(character)
+      const letter = new Letter(character)
+      return letter
     })
   }
 
-  seedValuesArray() {
+  getRandomLetterCodes (seedNumber) {
     let i
-    const seedValues = []
+    const randomNumbers = []
     for (i = 0; i < this.totalLetters; i++) {
-      const seedValue = (this.seed.value * 9301 + 49297) % 233280
-      var rnd = seedValue / 233280
-      seedValues.push(Math.floor(0 + rnd * (26 - 0)))
+      randomNumbers.push(this.createRandomNumber(seedNumber))
     }
-    return seedValues
+    return randomNumbers
+  }
+
+  createRandomNumber (seedNumber) {
+    seedNumber = (seedNumber * 9301 + 49297) % 233280
+    var rnd = seedNumber / 233280
+    return Math.floor(0 + rnd * (26 - 0))
   }
 }

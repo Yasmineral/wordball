@@ -1,5 +1,4 @@
-const Level = require('../src/level.js')
-const Hole = require('../src/hole.js')
+import Level from '../src/level.js'
 
 describe('Level', () => {
   it('should behave...', () => {
