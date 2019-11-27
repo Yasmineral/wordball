@@ -1,9 +1,12 @@
+import Letter from './letter.js'
+import { newLevel } from '../main.js'
+
 $( document ).ready(() => {
 
   const playerLetters = ['P', 'A', 'N', 'D', 'A', 'Y', 'S']
   const skillPoints = 50
   const letterGetReq = playerLetters.join('').toLowerCase()
-  const letters = new Letters()
+  const letters = new Letter()
   const smartGame = new SmartGame(playerLetters, skillPoints)
 
   $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function(data) {

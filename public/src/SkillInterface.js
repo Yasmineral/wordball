@@ -1,17 +1,16 @@
+import { DEFAULT_TIMER } from './config.js'
+import Game from './SkillGame.js'
+import { newLevel } from '../main.js'
+
 $(document).ready(function () {
-  const h1 = new Hole(200, 200, 1, 30)
-  const h2 = new Hole(300, 200, 1, 30)
-  const h3 = new Hole(100, 100, 2, 25)
-  const h4 = new Hole(400, 100, 2, 25)
-  const h5 = new Hole(250, 50, 5, 25)
-  const holeArray = [h1, h2, h3, h4, h5]
-  const game = new Game(holeArray)
+  const thisLevel = newLevel()
+  const game = new Game(thisLevel)
   const canvas = document.getElementById('canvas')
   const ctx = canvas.getContext('2d')
   const timeInterval = setInterval(countdown, 1000)
   let interval
-  let timeLeft = 10
-  function countdown () {
+  let timeLeft = DEFAULT_TIMER
+  function countdown() {
     if (timeLeft === 0) {
       game.forceGameOver()
       clearInterval(timeInterval)
@@ -27,13 +26,13 @@ $(document).ready(function () {
     let x2
     let y1
     let y2
-    $('#canvas').mousedown (function (canvas) {
-      const offset = $ (this).offset()
+    $('#canvas').mousedown(function (canvas) {
+      const offset = $(this).offset()
       x1 = event.clientX - offset.left
       y1 = event.clientY - offset.top
     })
-    $('#canvas').mouseup (function (canvas) {
-      const offset = $ (this).offset()
+    $('#canvas').mouseup(function (canvas) {
+      const offset = $(this).offset()
       x2 = event.clientX - offset.left
       y2 = event.clientY - offset.top
       ball.giveVelocity(x1, y1, x2, y2)
