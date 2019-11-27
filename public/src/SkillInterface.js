@@ -8,6 +8,7 @@ export function playSkillGame (game) {
   const ctx = canvas.getContext('2d')
   const timeInterval = setInterval(countdown, 1000)
   let interval
+  $("#score").show()
   let timeLeft = DEFAULT_TIMER
   function countdown() {
   if (timeLeft === 0) {
@@ -18,6 +19,9 @@ export function playSkillGame (game) {
       timeLeft--
     }
   }
+
+ 
+
   countdown()
   interval = setInterval(draw, 10)
   let x1

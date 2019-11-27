@@ -1,20 +1,22 @@
 import Letter from './letter.js'
-import { DEFAULT_TIMER } from './config.js'
+import { DEFAULT_TIMER, letterGroups } from './config.js'
 import { newLevel } from '../main.js'
 
+
 export function playSmartGame (game) {
-  const playerLetters = game.playerLetters
+  const playerLetters = ["A", "R", "E", "Y", "J", "M"]
   const skillPoints = game.skillPoints
   const letterGetReq = playerLetters.join('').toLowerCase()
   const letters = new Letter()
   const timeInterval = setInterval(countdown, 1000)
   let timeLeft = DEFAULT_TIMER
+  $('#score').text('Current Score: ' + game.smartPoints)
 
   function countdown() {
   if (timeLeft === 0) {
     $("#smartapp").hide()
     $("#score").show()
-    $("#score").text("final score weewoo")
+    $("#score").text("Game Over")
     clearInterval(timeInterval)
     } else {
       $('#timer').text(timeLeft + ' seconds remaining')
@@ -44,6 +46,7 @@ export function playSmartGame (game) {
     $('#typearea').text(wordInput)
     if (!game.validWords.includes(wordInput) && game.possibleWords.includes(wordInput)) {
       game.validWords.push(wordInput)
+      savePoints()
       clearTextInput()
     }
     $('#validwordslist').html(game.validWords.join(' - '))
@@ -64,5 +67,12 @@ export function playSmartGame (game) {
     $('.letterbutton-off').each((_index, button) => {
       $(button).attr('class', `letterbutton-on${button.value}`)
     })
+  }
+
+  function savePoints () {
+    wordInput.split('').forEach((char) => {
+      game.smartPoints += letters.getScore(char)
+    })
+    $('#score').text('Current Score: ' + game.smartPoints)
   }
 }
