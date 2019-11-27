@@ -8,14 +8,14 @@ export default class Game {
     this.letters = level.letters
     this.holeArray = level.holes
 
-    this.letters.forEach(letter => this.balls.push(new Ball(250, 600, 15, letter)))
+    this.letters.forEach(letter => this.balls.push(new Ball(250, 750, 15, letter)))
     this.counter = 0
     this.word = []
 
-    this.bLeftCorner = [100, 800]
-    this.bRightCorner = [400, 800]
-    this.tLeftCorner = [100, 700]
-    this.tRightCorner = [400, 700]
+    this.bLeftCorner = [100, 850]
+    this.bRightCorner = [400, 850]
+    this.tLeftCorner = [100, 800]
+    this.tRightCorner = [400, 800]
   }
 
   forceGameOver() {
@@ -33,6 +33,12 @@ export default class Game {
   increaseCounter() {
     this.counter += 1
   };
+
+  checkBallDone(ball) {
+    if (ball.isDone) {
+      this.increaseCounter()
+    }
+  }
 
   currentBall() {
     return this.balls[this.counter]
@@ -67,7 +73,7 @@ export default class Game {
   isBallinWordHole (ball) {
     const x = ball.xPos
     const y = ball.yPos
-    if (x > 100 && x < 400 && y > 700 && y < 800) {
+    if (x > 100 && x < 400 && y > 800 && y < 850) {
       this.word.push(ball.letter)
       ball.done()
       this.increaseCounter()
