@@ -9,7 +9,7 @@ export function playSmartGame (game) {
   const timeInterval = setInterval(countdown, 1000)
   let timeLeft = DEFAULT_TIMER
   $('#score').text('Current Score: ' + game.smartPoints)
-
+  $('#validwordslist').html('')
   function countdown() {
   if (timeLeft === 0) {
     clearInterval(timeInterval)

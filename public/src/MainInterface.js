@@ -7,6 +7,7 @@ import { newLevel } from '../main.js'
 $(document).ready(function () {
   let thisLevel = newLevel(0)
   let skillGame = new SkillGame(thisLevel)
+  let roundNo = 0
   let masterScore = 0
   $("#next").hide()
   $("#score").hide()
@@ -31,7 +32,9 @@ $(document).ready(function () {
   })
 
   $("#nextround").click(() => {
+    masterScore += Number($("#total").text())
     roundNo += 1
+    console.log(masterScore)
     thisLevel = newLevel(roundNo)
     skillGame = new SkillGame(thisLevel)
     $("#nextround").hide()
