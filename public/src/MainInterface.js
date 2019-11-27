@@ -11,6 +11,7 @@ $(document).ready(function () {
   $("#score").hide()
   $("#skillapp").hide()
   $("#smartapp").hide()
+  $("#gameover").hide()
 
   $("#start").click(function() {
     $("#start").hide()

@@ -15,8 +15,10 @@ export function playSmartGame (game) {
   function countdown() {
   if (timeLeft === 0) {
     $("#smartapp").hide()
-    $("#score").show()
-    $("#score").text("Game Over")
+    $("#gameover").show()
+    $("#skillpoints").text(game.skillPoints)
+    $("#smartpoints").text(game.smartPoints)
+    $("#total").text(game.smartPoints + game.skillPoints)
     clearInterval(timeInterval)
     } else {
       $('#timer').text(timeLeft + ' seconds remaining')
