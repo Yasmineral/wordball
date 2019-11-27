@@ -30,6 +30,7 @@ export function playSmartGame (game) {
 
   generateLetterButtons ()
   let wordInput = ''
+  $('#typearea').text(wordInput)
 
   $('#clearbutton').click(() => {
     clearTextInput()
