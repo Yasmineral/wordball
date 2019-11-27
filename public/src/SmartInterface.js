@@ -4,9 +4,7 @@ import { newLevel } from '../main.js'
 
 
 export function playSmartGame (game) {
-  const playerLetters = ["A", "R", "E", "Y", "J", "M"]
-  const skillPoints = game.skillPoints
-  const letterGetReq = playerLetters.join('').toLowerCase()
+  const letterGetReq = game.playerLetters.join('').toLowerCase()
   const letters = new Letter()
   const timeInterval = setInterval(countdown, 1000)
   let timeLeft = DEFAULT_TIMER

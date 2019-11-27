@@ -5,8 +5,9 @@ import SmartGame from './SmartGame.js'
 import { newLevel } from '../main.js'
 
 $(document).ready(function () {
-  const thisLevel = newLevel()
-  const skillGame = new SkillGame(thisLevel)
+  let thisLevel = newLevel(0)
+  let skillGame = new SkillGame(thisLevel)
+  let masterScore = 0
   $("#next").hide()
   $("#score").hide()
   $("#skillapp").hide()
@@ -29,8 +30,13 @@ $(document).ready(function () {
     playSmartGame(smartGame)
   })
 
-  $("#nextround").click(function() {
-    console.log('WOHOOOO NEXT ROUND')
+  $("#nextround").click(() => {
+    roundNo += 1
+    thisLevel = newLevel(roundNo)
+    skillGame = new SkillGame(thisLevel)
+    $("#nextround").hide()
+    $("#gameover").hide()
+    $("#start").show()
   })
 
 })
