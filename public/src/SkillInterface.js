@@ -20,25 +20,34 @@ export function playSkillGame (game) {
   }
   countdown()
   interval = setInterval(draw, 10)
-  let x1
+
   let x2
-  let y1
   let y2
+
+  function inBounds(y) {
+    if(y<600) {
+      return false
+    }
+    return true
+  }
+
   $('#canvas').mousedown(function (canvas) {
     const offset = $(this).offset()
-    x1 = event.clientX - offset.left
-    y1 = event.clientY - offset.top
+    $('#canvas').bind('mousemove', function(e){
+      x2 = e.pageX - offset.left
+      y2 = e.pageY - offset.top
+       $('#canvas').mouseup(function (canvas) {
+         if (inBounds(y2)) { ball.giveVelocity(ball.xPos,ball.yPos, x2, y2)}
+      })
+    })
   })
-  $('#canvas').mouseup(function (canvas) {
-    const offset = $(this).offset()
-    x2 = event.clientX - offset.left
-    y2 = event.clientY - offset.top
-    ball.giveVelocity(x1, y1, x2, y2)
-  })
+
+
   function draw () {
     $('#score').text('Current Score: ' + game.score)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.font = '20px Arial'
+    game.checkBallDone(ball)
     game.isBallinScoreHole(ball)
     game.isBallinWordHole(ball)
     game.isBallInTheAbyss(ball)
@@ -50,6 +59,12 @@ export function playSkillGame (game) {
     } else {
       drawBall(ball)
     }
+    ctx.fillStyle = 'white'
+    ctx.fillText('Foul Line!', 200, 620)
+    ctx.beginPath();
+    ctx.moveTo(0, 600);
+    ctx.lineTo(500, 600);
+    ctx.stroke();
   }
   function drawHoles (array) {
     array.forEach(function drawHole (item) {
@@ -69,7 +84,7 @@ export function playSkillGame (game) {
     ctx.fillStyle = 'black'
     ctx.fill()
     ctx.fillStyle = 'white'
-    ctx.fillText('Throw in here to make a word!', 115, 750)
+    ctx.fillText('Throw in here to make a word!', 115, 830)
   }
   function drawBall (ball) {
     ball.position()
