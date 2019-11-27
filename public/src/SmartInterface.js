@@ -14,12 +14,8 @@ export function playSmartGame (game) {
 
   function countdown() {
   if (timeLeft === 0) {
-    $("#smartapp").hide()
-    $("#gameover").show()
-    $("#skillpoints").text(game.skillPoints)
-    $("#smartpoints").text(game.smartPoints)
-    $("#total").text(game.smartPoints + game.skillPoints)
     clearInterval(timeInterval)
+    gameOver()
     } else {
       $('#timer').text(timeLeft + ' seconds remaining')
       timeLeft--
@@ -76,5 +72,16 @@ export function playSmartGame (game) {
       game.smartPoints += letters.getScore(char)
     })
     $('#score').text('Current Score: ' + game.smartPoints)
+  }
+  
+  function gameOver() {
+    $("#score").hide()
+    $("#timer").hide()
+    $("#smartapp").hide()
+    $("#gameover").show()
+    $("#nextround").show()
+    $("#skillpoints").text(game.skillPoints)
+    $("#smartpoints").text(game.smartPoints)
+    $("#total").text(game.smartPoints + game.skillPoints)
   }
 }

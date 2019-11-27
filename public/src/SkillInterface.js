@@ -92,6 +92,8 @@ export function playSkillGame (game) {
       clearInterval(interval)
       $("#skillapp").hide()
       $("#next").show()
+      $("#score").hide()
+      $("#timer").hide()
     }
   }
 }

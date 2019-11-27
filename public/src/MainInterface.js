@@ -12,6 +12,7 @@ $(document).ready(function () {
   $("#skillapp").hide()
   $("#smartapp").hide()
   $("#gameover").hide()
+  $("#nextround").hide()
 
   $("#start").click(function() {
     $("#start").hide()
@@ -22,8 +23,14 @@ $(document).ready(function () {
   $("#next").click(function() {
     $("#next").hide()
     $("#smartapp").show()
+    $("#score").show()
+    $("#timer").show()
     const smartGame = new SmartGame(skillGame.word,skillGame.score)
     playSmartGame(smartGame)
+  })
+
+  $("#nextround").click(function() {
+    console.log('WOHOOOO NEXT ROUND')
   })
 
 })
