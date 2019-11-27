@@ -1,4 +1,4 @@
-class SmartGame {
+export default class SmartGame {
   constructor (playerLetters, skillPoints) {
     this.playerLetters = playerLetters
     this.skillPoints = skillPoints
