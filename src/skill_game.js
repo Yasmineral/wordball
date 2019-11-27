@@ -1,57 +1,64 @@
-class Game {
-  constructor (holeArray) {
+import Ball from './ball.js'
+
+export default class Game {
+  constructor(level) {
     this.score = 0
-    this.letters = ['D', 'O', 'G', 'F', 'A', 'R', 'T', 'Z']
     this.balls = []
-    this.letters.forEach(element => this.balls.push(new Ball(250, 600, 15, element)))
+    this.level = level
+    this.letters = level.letters
+    this.holeArray = level.holes
+
+    this.letters.forEach(letter => this.balls.push(new Ball(250, 600, 15, letter)))
     this.counter = 0
     this.word = []
-    this.holeArray = holeArray
+
     this.bLeftCorner = [100, 800]
     this.bRightCorner = [400, 800]
     this.tLeftCorner = [100, 700]
     this.tRightCorner = [400, 700]
   }
 
-  forceGameOver () {
+  forceGameOver() {
     this.counter = this.letters.length
   }
 
-  isGameOver () {
+  isGameOver() {
     if (this.counter >= this.letters.length) {
       return true
     } else {
       return false
-    }
-  }
+    };
+  };
 
-  increaseCounter () {
+  increaseCounter() {
     this.counter += 1
-  }
+  };
 
-  currentBall () {
+  currentBall() {
     return this.balls[this.counter]
-  }
+  };
 
-  isBallinScoreHole (ball) {
+  isBallinScoreHole(ball) {
     var self = this
     this.holeArray.forEach(function (item) {
       const x1 = item.xPos - item.radius
       const x2 = item.xPos + item.radius
       const y1 = item.yPos - item.radius
       const y2 = item.yPos + item.radius
+
       const x = ball.xPos
       const y = ball.yPos
+
       if (x > x1 && x < x2 && y > y1 && y < y2) {
         ball.done()
         self.increaseCounter()
-        self.score += ball.score * item.score
+        self.score += (ball.score * item.score)
       }
     })
   }
 
-  isBallInTheAbyss (ball) {
-    if (ball.yPos <= ball.radius) {
+  isBallInTheAbyss(ball) {
+    if (ball.yPos < -ball.radius) {
       ball.done()
       this.increaseCounter()
     }

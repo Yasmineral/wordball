@@ -1,4 +1,16 @@
 'use strict'
+<<<<<<< HEAD
+
+const e = React.createElement
+
+class LikeButton extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { start: false }
+  }
+
+  render () {
+=======
 const e = React.createElement
 class LikeButton extends React.Component {
   constructor(props) {
@@ -6,6 +18,7 @@ class LikeButton extends React.Component {
     this.state = { start: false }
   }
   render() {
+>>>>>>> master
     if (this.state.start) {
     }
     return e(
@@ -15,5 +28,9 @@ class LikeButton extends React.Component {
     )
   }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 const domContainer = document.querySelector('#like_button_container')
 ReactDOM.render(e(LikeButton), domContainer)
