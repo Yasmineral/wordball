@@ -1,19 +1,16 @@
-export default class Ball {
+class Ball {
   constructor (x, y, radius, letter) {
-    // letter details
-    this.letter = letter.character
-    this.colour = letter.colour
-    this.score = letter.score
-    //
+    const letters = new Letters()
+    this.colour = letters.getColour(letter)
+    this.score = letters.getScore(letter)
     this.radius = radius
     this.xPos = x
     this.yPos = y
     this.xVel = 0
     this.yVel = 0
-    // cooefficent of resitution
     this.cor = 0.5
-    // interval of time
     this.dt = 0.1
+    this.letter = letter
     this.isDone = false
     this.canvas = document.getElementById('canvas')
   }
@@ -33,7 +30,7 @@ export default class Ball {
     this.velocity()
     this.xPos += this.xVel * this.dt
     this.yPos += this.yVel * this.dt
-  };
+  }
 
   done () {
     this.isDone = true

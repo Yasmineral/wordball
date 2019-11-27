@@ -61,10 +61,10 @@ export default class Game {
     if (ball.yPos < -ball.radius) {
       ball.done()
       this.increaseCounter()
-    };
-  };
+    }
+  }
 
-  isBallinWordHole(ball) {
+  isBallinWordHole (ball) {
     const x = ball.xPos
     const y = ball.yPos
     if (x > 100 && x < 400 && y > 700 && y < 800) {
@@ -72,5 +72,5 @@ export default class Game {
       ball.done()
       this.increaseCounter()
     }
-  };
-};
+  }
+}
