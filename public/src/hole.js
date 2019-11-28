@@ -1,5 +1,5 @@
 export default class Hole {
-  constructor(x, y, score, radius) {
+  constructor (x, y, score, radius) {
     this.xPos = x
     this.yPos = y
     this.score = score

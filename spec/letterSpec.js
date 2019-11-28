@@ -1,4 +1,5 @@
-import Letter from '../src/letter.js'
+import Letter from '../public/src/level.js'
+
 
 describe('LetterScores', () => {
   const letter = new Letter()

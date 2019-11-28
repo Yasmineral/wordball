@@ -1,4 +1,4 @@
-import Seed from '../src/seed.js'
+import Seed from '../publix/src/seed.js'
 
 describe('Seed', () => {
   it('returns 100111103 when passed dog', () => {
