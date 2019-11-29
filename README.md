@@ -1,5 +1,11 @@
 # ⚽️ 🏀 🏈 ⚾️ 🎱 WORDBALL 🎱 ⚾️ 🏈 🏀 ⚽️
-WORDBALL is a physics based word-game where you throw letter balls into a score-hole or a word-hole. Letter balls you throw into a score-hole give you *skill points*. Letter balls you throw into a word-hole are used to create words which give you *smart points*. Test your mind and your aim with WORDBALL!
+WORDBALL is a physics based word-game where you throw letter balls into a score-hole or a word-hole. Letter balls you throw into a score-hole give you *skill points*. Letter balls you throw into a word-hole are used to create words which give you *smart points*. Test your mind 🧠 and your aim 🎯 with WORDBALL!
+
+### WORDBALL WAS CREATED BY:
+- https://github.com/jmhc22
+- https://github.com/Yasmineral
+- https://github.com/JDtheGeek
+- https://github.com/jlonsdale
 
 ## Links
 - Our trello board: https://trello.com/b/BJX4Ee71/wordball
