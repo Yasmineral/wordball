@@ -34,7 +34,6 @@ export default class Level {
       const letter = new Letter(character)
       return letter
     })
-    console.log(lettersArray)
     return lettersArray
   }
 

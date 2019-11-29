@@ -1,4 +1,4 @@
-import Level from '../src/level.js'
+import Level from '../public/src/level.js'
 
 describe('Level', () => {
   it('should behave...', () => {
