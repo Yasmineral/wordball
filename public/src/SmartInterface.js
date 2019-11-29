@@ -2,6 +2,8 @@ import Letter from './letter.js'
 import { DEFAULT_TIMER } from './config.js'
 
 export function playSmartGame (game) {
+  $('#timer').show()
+  $('#score').show()
   const letterGetReq = game.playerLetters.join('').toLowerCase()
   const letters = new Letter()
   const timeInterval = setInterval(countdown, 1000)

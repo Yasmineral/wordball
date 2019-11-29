@@ -146,9 +146,10 @@ export function playSkillGame (game) {
     if (game.isGameOver() === true) {
       clearInterval(interval)
       $('#skillapp').hide()
-      $('#next').show()
-      $('#score').hide()
       $('#timer').hide()
+      $('#score').hide()
+      $('#basiccanvas').show()
+      $('#next').show()
     }
   }
 }
