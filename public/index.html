@@ -5,18 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="/public/src/style/style.css">
   <title>Word Ball</title>
 </head>
 
 <body>
 
   <header>
+<<<<<<< HEAD
     <h1> Word  Ball  <div id='extream'> EXTREAM </div> </h1>
+=======
+    <h1>Wall Ball</h1>
+>>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
   </header>
 
 
   <main>
+<<<<<<< HEAD
   <center>
   <button class="button" id='start' type="button">Start</button>
   <input class="button" id='view' type="button" onclick="location.href='/leaderboard';" value="View Leaderboard" />
@@ -24,12 +29,21 @@
   <button class="button" id='nextround' type="button">Next Round</button>
   <br>
   <canvas id="basiccanvas" width="500" height="900"></canvas>
+=======
+    <center>
+      <button id='start' type="button">Start</button>
+      <button id='next' type="button">Next</button>
+      <button id='nextround' type="button">Next Round</button>
+    </center>
+
+>>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
   <div id="timer">
   </div>
   <div id="score">
   </div>
   </center>
 
+<<<<<<< HEAD
 <div id="skillapp">
   <center>
     <canvas id="canvas" width="500" height="900"></canvas>
@@ -51,11 +65,39 @@
         </div>
         <div id="clearword">
           <button id="clearbutton">CLEAR</button>
+=======
+    <div id="skillapp">
+      <center>
+        <canvas id="canvas" width="500" height="900"></canvas>
+          <canvas id="canvas2" width="50" height="900"></canvas>
+      </center>
+    </div>
+
+    <div id="smartapp">
+      <center>
+        <div id='gamediv'>
+          <div id="validwords">
+            <u>WORDS</u>
+            <span id="validwordslist"></span>
+          </div>
+          <div id="typebox">
+            <b><span id="typearea"></span></b><span class="blinking-cursor">_</span>
+          </div>
+          <div id="letterkeys">
+          </div>
+          <div id="clearword">
+            <button id="clearbutton">CLEAR</button>
+          </div>
+>>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
         </div>
     </div>
+<<<<<<< HEAD
   </center>
 </div>
 
+=======
+    
+>>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
 <div id="gameover">
   <center>
     <h1>Final Scores</h1>
@@ -85,4 +127,14 @@
 <script type="module" src="src/SmartGame.js"></script>
 <script type="module" src="src/level.js"></script>
 
+<<<<<<< HEAD
 </body>
+=======
+  <script type="module" src="./main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="module" src="./src/MainInterface.js"></script>
+  <script type="module" src="./src/SkillGame.js"></script>
+  <script type="module" src="./src/SmartGame.js"></script>
+  <script type="module" src="./src/level.js"></script>
+</body>
+>>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
