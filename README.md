@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# ⚽️ 🏀 🏈 ⚾️ 🎱 wordball 🎱 ⚾️ 🏈 🏀 ⚽️
-=======
 # ⚽️ 🏀 🏈 ⚾️ 🎱 WORDBALL 🎱 ⚾️ 🏈 🏀 ⚽️
 WORDBALL is a physics based word-game where you throw letter balls into a score-hole or a word-hole. Letter balls you throw into a score-hole give you *skill points*. Letter balls you throw into a word-hole are used to create words which give you *smart points*. Test your 🧠 and your 🎯with WORDBALL!
 
@@ -14,13 +11,10 @@ WORDBALL is a physics based word-game where you throw letter balls into a score-
 - Our trello board: https://trello.com/b/BJX4Ee71/wordball
 
 ## Setup
->>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
 
 - run "npm install"
 - run "npm run dev" to start server
 - run "npm test" to run tests
-<<<<<<< HEAD
-=======
 
 ## Tech Stack
  
@@ -29,4 +23,4 @@ WORDBALL is a physics based word-game where you throw letter balls into a score-
 - database: MongoDB
 - frontend: jQuery(currently) and React
 - api to check for words: http://www.anagramica.com/api
->>>>>>> 89ca233ef5ef44805947f4b6f56ed393cd40462a
+
